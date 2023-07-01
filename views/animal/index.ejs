@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <%- include('../partials/head.ejs') %>
+      
 <body>
-    <h1>Animal App</h1>
+  <%- include('../partials/header.ejs') %>
     <h2>List of Animals</h2>
 
-    <% animals.forEach((animals, index) => { %>
-      <a href="/animal/<%= animals._id %>"><h2><%= animals.name %></h2></a>
+    <h3><a href="/animals/new">Add new animal</a></h3>
 
-    <% }) %>
+    <% for (animal of animals) { %>
+      <a href="/animals/<%= animal.id %>"><h2><%= animal.name %></h2></a>
+
+    <% } %>
      
 </body>
 </html>

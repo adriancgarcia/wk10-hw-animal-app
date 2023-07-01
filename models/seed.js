@@ -1,12 +1,10 @@
-const mongoose = require("./models/connection");
-const Animal = require("./models/animal");
-
-
+const mongoose = require("./connection");
+const Animal = require("./animal");
 
 mongoose.connection.on('open', async () => {
 
-    // 1. create entroes into the db using the allAnimals
-    // 1a. in order to do thie we need to dlete everyting
+    // 1. create entries into the db using the allAnimals
+    // 1a. in order to do this we need to delete everything
     await Animal.deleteMany();
 
     // 1b. then using allAnimals, we will insert that into the db.
@@ -21,5 +19,4 @@ mongoose.connection.on('open', async () => {
 
     // 2. we are going to close the connection
     mongoose.connection.close();
-
-})
+});

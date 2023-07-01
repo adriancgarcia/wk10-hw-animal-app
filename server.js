@@ -15,7 +15,7 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({extended: true}));
 app.use("/static", express.static("public"));
 
-app.use("/animal", AnimalRouter);
+app.use("/animals", AnimalRouter);
 
 
 // Listener
