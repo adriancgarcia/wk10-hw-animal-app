@@ -3,6 +3,7 @@ const mongoose = require("./connection");
 // ANIMAL SCHEMA goes into model
 const animalSchema = new mongoose.Schema({
     name: String, 
+    img: String,
     species: String,  
     location: String, 
     lifeExpectancy: Number, 

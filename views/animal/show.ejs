@@ -6,10 +6,12 @@
     <main>
         <div>
             <article>
+                
                 <h3>Name: <%= animal.name%></h2>
+                <img src="<%= animal.img %>">
                 <h3>Species: <%= animal.species%></h3>
                 <h3>Location: <%= animal.location%></h3>
-                <h3>Life Expectancy: <%= animal.lifeExpectancy%> years.</h3>
+                <h3>Life Expectancy: <%= animal.lifeExpectancy%> years</h3>
                 <h3>Extinct: <%= animal.extinct ? "Extinct" : "Not Extinct" %></h3>
                 
                 <a href="/animals/<%=animal._id %>/edit"><button>Edit</button></a>

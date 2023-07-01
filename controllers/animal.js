@@ -34,8 +34,10 @@ router.put("/:id", async (req, res) => {
 
 // Create Route - POST
 router.post("/", async (req, res) => {
+    const img = req.body.image;
+
     if(req.body.extinct === 'on') {
-        req.body.extinct = true;
+        req.body.extinct = true; 
     }else {
         req.body.extince = false;
     }
@@ -57,5 +59,12 @@ router.get("/:id", async (req, res) => {
     res.render("animal/show.ejs", { animal })
 });
 
+
+router.post("/adduser", async (req, res) => {
+    if(req.body.password) {
+
+
+    }
+})
 // EXPORT THE ROUTES
 module.exports = router;
