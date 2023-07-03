@@ -3,8 +3,6 @@ const mongoose = require("./connection");
 
 const { Schema, model} = mongoose;
 
-mongoose = { Schema, model} = mongoose;
-
 const userSchema = new Schema({
     username: {type: String, require: true, unique: true},
     password: { type: String, required: true },

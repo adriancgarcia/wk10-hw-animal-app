@@ -4,6 +4,15 @@ const Animal = require("../models/animal");
 // create router
 const router = express.Router();
 
+router.use((req, res, next) => {
+    req.session
+    if(req.session.loggedIn){
+        next();
+    }else{
+        res.redirect('/user/login')
+    }
+});
+
 // ROUTES 
 // index route - get - all animals
 router.get("/", async (req, res) => {
@@ -41,6 +50,9 @@ router.post("/", async (req, res) => {
     }else {
         req.body.extince = false;
     }
+
+    req.body.username = req.username;
+    
     await Animal.create(req.body);
     res.redirect("/animals");
 });    

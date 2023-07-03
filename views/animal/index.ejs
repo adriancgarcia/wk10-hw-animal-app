@@ -4,13 +4,17 @@
       
 <body>
   <%- include('../partials/header.ejs') %>
+
+  
+    <a href="/user/logout"><button>Logout</button></a>
+
     <h2>List of Animals</h2>
 
     <h3><a href="/animals/new">Add new animal</a></h3>
 
     <% for (animal of animals) { %>
       <a href="/animals/<%= animal.id %>"><h2><%= animal.name %></h2></a>
-      <img src="<%= animal.img %>">
+      <img src="<%= animal.img%>">
 
     <% } %>
      
