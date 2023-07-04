@@ -11,14 +11,17 @@ router.use((req, res, next) => {
     }else{
         res.redirect('/user/login')
     }
-});
+})
 
 // ROUTES 
 // index route - get - all animals
 router.get("/", async (req, res) => {
     const allAnimals = await Animal.find({ username: req.session.username })
     // console.log({animals})
-    res.render("animal/index.ejs", { animals: allAnimals, user: req.session.username })
+    res.render(
+        "animal/index.ejs", 
+        { animals: allAnimals, user: req.session.username }
+        )
 });
 
 // new route - get - new form
@@ -43,18 +46,15 @@ router.put("/:id", async (req, res) => {
 
 // Create Route - POST
 router.post("/", async (req, res) => {
-    const img = req.body.image;
-
-    if(req.body.extinct === 'on') {
-        req.body.extinct = true; 
-    }else {
-        req.body.extince = false;
-    }
-
-    req.body.username = req.username;
-
-    await Animal.create(req.body);
-    res.redirect("/animals");
+    // const img = req.body.img;
+        if(req.body.extinct === 'on') {
+            req.body.extinct = true; 
+        }else {
+            req.body.extinct = false;
+        }
+        req.body.username = req.session.username;
+        await Animal.create(req.body);
+        res.redirect("/animals");
 });    
 
 // Edit route - POST
@@ -71,12 +71,5 @@ router.get("/:id", async (req, res) => {
     res.render("animal/show.ejs", { animal })
 });
 
-
-router.post("/adduser", async (req, res) => {
-    if(req.body.password) {
-
-
-    }
-})
 // EXPORT THE ROUTES
 module.exports = router;

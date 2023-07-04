@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('../partials/head.ejs') %>
-      
 <body>
-  <%- include('../partials/header.ejs') %>
-
-    <h2><%= user %></h2>
-    <a href="/user/logout"><button>Logout</button></a>
-
-    <h2>List of Animals</h2>
-
-    <h3><a href="/animals/new">Add new animal</a></h3>
-
-    <% for (animal of animals) { %>
-      <a href="/animals/<%= animal.id %>"><h2><%= animal.name %></h2></a>
-      <img src="<%= animal.img%>">
-
-    <% } %>
-     
+    <%- include('../partials/header.ejs') %>
+    <main>
+      <div>
+        <h2><%= user %></h2>
+        <a href="/user/logout"><button>Logout</button></a>
+        <h2>List of Animals</h2>
+        <h3><a href="/animals/new">Add new animal</a></h3>
+        <% for (animal of animals) { %>
+          <article>
+            <a href="/animals/<%= animal.id %>"><h2> <%= animal.name %> </a></h2>
+          </article>  
+        <% } %>
+      <div>
+    </main>
 </body>
 </html>

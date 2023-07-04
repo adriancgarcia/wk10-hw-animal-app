@@ -7,8 +7,9 @@ const animalSchema = new mongoose.Schema({
     species: String,  
     location: String, 
     lifeExpectancy: Number, 
-    extinct: Boolean
-    }, {timestamps: true});
+    extinct: Boolean,
+    username: String,
+    });
 
 // ANIMAL MODEL
  const Animal = mongoose.model("animal", animalSchema) // name is always singular and capital letter.

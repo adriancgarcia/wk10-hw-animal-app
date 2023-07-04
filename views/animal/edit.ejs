@@ -3,26 +3,34 @@
     <%- include('../partials/head.ejs') %>
 <body>
     <%- include('../partials/header.ejs') %>
-    
     <main>
         <div>
             <form method="POST" action="/animals/<%=animal._id%>?_method=PUT">
                 <fieldset>
                     <legend>Edit animal</legend>
+
                     <label>Name: <input type="text" name="name" placeholder="Enter animal name" value="<%=animal.name%>"/></label>
-                    <label>Image URL: <input type="text" name="img" value="<%=animal.img%>"/></label>
-                    <label>Species: <input type="text" name="species" placeholder="Enter species" value="<%=animal.species%>"/></label>
-                    <label>Location: <input type="text" name="location" placeholder="location of animal" value="<%=animal.location%>"/></label>
-                    <label>Life Expectancy: <input type="number" name="lifeExpectancy" placeholder="Enter lifespan in years"value="<%=animal.lifeExpectancy%>"/></label>
-                    <label>Extinct: 
-                        <input type="checkbox" name="extinct" <%=animal.extinct ? "checked" : "" %>/></label>
+
+                    <label>Image URL: <input type="text" name="img" value=" <%=animal.img%>"/></label>
                     
+                    <label>Species: <input type="text" name="species" placeholder="Enter species" value="<%=animal.species%>"/></label>
+                    
+                    <label>Location: <input type="text" name="location" placeholder="location of animal" value="<%=animal.location%>"/></label>
+                    
+                    <label>Life Expectancy: <input type="number" name="lifeExpectancy" placeholder="Enter lifespan in years"value="<%=animal.lifeExpectancy%>"/></label>
+                    
+                    <label>Extinct: 
+                        <input 
+                        type="checkbox" 
+                        name="extinct" 
+                        <%=animal.extinct ? "checked" : "" %>
+                        />
+                    </label>
                     <input type="submit" value="edit animal"/>
                 </fieldset>
             </form> 
 
-                <a href="/animals"><button>Back To Main</button></a>
-            </article>
+            <!-- <a href="/animals"><button>Back To Main</button></a> -->
         </div>            
     </main>
     

@@ -1,4 +1,4 @@
-const mongoose = require("./connection");
+const mongoose = require("./models/connection");
 const Animal = require("./animal");
 
 mongoose.connection.on('open', async () => {
