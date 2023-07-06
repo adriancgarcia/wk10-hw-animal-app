@@ -46,13 +46,13 @@ router.put("/:id", async (req, res) => {
 
 // Create Route - POST
 router.post("/", async (req, res) => {
-    // const img = req.body.img;
         if(req.body.extinct === 'on') {
             req.body.extinct = true; 
         }else {
             req.body.extinct = false;
         }
         req.body.username = req.session.username;
+        req.body 
         await Animal.create(req.body);
         res.redirect("/animals");
 });    

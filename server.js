@@ -5,11 +5,13 @@ const app = express();
 const AnimalRouter = require("./controllers/animal");
 const UserRouter = require("./controllers/user");
 const methodOverride = require ("method-override");
+const morgan = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 // MIDDLEWARE /////
 app.use(express.static("public"));
+app.use(morgan("dev"));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(session({
