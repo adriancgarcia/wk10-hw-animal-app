@@ -20,7 +20,8 @@ router.get("/", async (req, res) => {
     // console.log({animals})
     res.render(
         "animal/index.ejs", 
-        { animals: allAnimals, user: req.session.username }
+        { animals: allAnimals, 
+            user: req.session.username }
         )
 });
 
